@@ -17,20 +17,36 @@
   </head>
   <body>
     <div class="container">
+      
         <div class="form-group">
             <label for="namasiswa">Nama Siswa</label>
-            <input type="teks" class="form-control" id="yo_namasiswa" >
+            <input type="teks" class="form-control" id="yo_namasiswa" placeholder="Masukan Nama Anda">
         </div>
         
         <label for="kelas">Kelas</label>
-    <select class="form-control" id="yo_kelas">
+    <select class="form-control" id="yo_kelas" placeholder="Masukan Kelas Anda">
       <option value="X">X</option>
       <option value="XI">XI</option>
       <option value="XII">XII</option>
     </select>
 
     <label for="alamat">Alamat</label>
-    <textarea class="form-control" id="yo_alamat" rows="3"></textarea>
+    <textarea class="form-control" id="yo_alamat" rows="3" placeholder="Masukan Alamat Anda"></textarea>
+
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="yo_email" placeholder="name@example.com">
+
+    <label for="agama">Agama</label>
+    <input type="teks" class="form-control" id="yo_agama" placeholder="Masukan Agama Anda">
+
+    <label for="no">No.Hp</label>
+    <input type="email" class="form-control" id="yo_no" placeholder="Masukan No.Hp">
+
+    <label for="gender">Gender</label>
+    <select class="form-control" id="yo_gender" placeholder="Masukan Gender Anda">
+      <option value="X">Laki-Laki</option>
+      <option value="XI">Perempuan</option>
+    </select>
 
     <button class="btn btn-primary mt-4" onclick="add()">simpan</button>
 
@@ -41,6 +57,10 @@
             <th scope="col">Nama Siswa</th>
             <th scope="col">Kelas</th>
             <th scope="col">Alamat</th>
+            <th scope="col">email</th>
+            <th scope="col">Agama</th>
+            <th scope="col">No.Hp</th>
+            <th scope="col">Gender</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -48,6 +68,8 @@
          
         </tbody>
       </table>
+
+      
     </div>
     
 
@@ -55,7 +77,10 @@
         var namasiswa = ['gugun', 'dodi']
         var kelas = ['X', 'xii']
         var alamat = ['Jakarta', 'depok']
-
+        var email = ['gugun123@gmail.com', 'dodi000@gmail.com']
+        var agama = ['Islam', 'Islam']
+        var no = ['081456595', '025874169']
+        var gender = ['Laki-Laki', 'Perempuan']
         var tampil = document.getElementById("tampildata")
 
         function showData() {
@@ -69,9 +94,13 @@
                     "<td>"+namasiswa[i]+"</td>"+
                     "<td>"+kelas[i]+"</td>"+
                     "<td>"+alamat[i]+"</td>"+
+                    "<td>"+email[i]+"</td>"+
+                    "<td>"+agama[i]+"</td>"+
+                    "<td>"+no[i]+"</td>"+
+                    "<td>"+gender[i]+"</td>"+
                     "<td>"+
                         "<button class='btn btn-warning'onclick='edit("+i+")'>Edit</button>"+
-                        "<button class='btn btn-danger'onclick='hapus("+i+")'>Hapus</button>"+
+                        "<button class='btn btn-danger mt-4'onclick='hapus("+i+")'>Hapus</button>"+
                     "</td>"+
                 "</tr>"
             }
@@ -83,10 +112,18 @@
             var namabaru = document.getElementById('yo_namasiswa').value
             var kelasbaru = document.getElementById('yo_kelas').value
             var alamatbaru = document.getElementById('yo_alamat').value
-            
+            var emailbaru = document.getElementById('yo_email').value
+            var agamabaru = document.getElementById('yo_agama').value
+            var nobaru = document.getElementById('yo_no').value
+            var genderbaru = document.getElementById('yo_gender').value
+
             namasiswa.push(namabaru)
             kelas.push(kelasbaru)
             alamat.push(alamatbaru)
+            email.push(emailbaru)
+            agama.push(agamabaru)
+            no.push(nobaru)
+            gender.push(genderbaru)
 
             showData()
         }
@@ -95,10 +132,18 @@
             var namabaru = document.getElementById('yo_namasiswa').value
             var kelasbaru = document.getElementById('yo_kelas').value
             var alamatbaru = document.getElementById('yo_alamat').value
+            var emailbaru = document.getElementById('yo_email').value
+            var agamabaru = document.getElementById('yo_agama').value
+            var nobaru = document.getElementById('yo_no').value
+            var genderbaru = document.getElementById('yo_gender').value
 
             namasiswa.splice(i,1 )
             kelas.splice(i,1)
             alamat.splice(i,1)
+            email.splice(i,1)
+            agama.splice(i,1)
+            no.splice(i,1)
+            gender.splice(i,1)
 
             showData()
         }
@@ -112,6 +157,18 @@
 
           var mengubah = prompt("Mengganti Alamat Anda",alamat[id])
           alamat[id] = mengubah;
+
+          var mengubah = prompt("Mengganti Alamat Email Anda",email[id])
+          email[id] = mengubah;
+
+          var mengubah = prompt("Mengganti No.Hp Anda",no[id])
+          no[id] = mengubah;
+
+          var mengubah = prompt("Mengganti Gender Anda",gender[id])
+          gender[id] = mengubah;
+
+          var mengubah = prompt("Mengganti Agama Anda",agama[id])
+          agama[id] = mengubah;
 
           showData()
         }
